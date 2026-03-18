@@ -1,37 +1,13 @@
-# 🎓 Student Performance Prediction System
+# 🎓 ACADEMYFLOW
+Team members : BARANI & ARJUN
 
-A machine learning web application that predicts student academic performance based on study habits, sleep patterns, and other behavioral factors.
+# Project Roles : 
+ - Model Training - Barani 
+ - EDA & Feature Engineering - Both 
+ - Deployment - Both 
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.0+-orange.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.0+-red.svg)
+ This project was built collaboratively by both team members. Contributions are reflected in commit history and development workflow.
 
-## 📊 Project Overview
-
-This project uses **Linear Regression** to predict student performance index (0-100 scale) based on five key features:
-- Hours studied per day
-- Previous exam scores
-- Extracurricular activity participation
-- Sleep hours per night
-- Number of sample papers practiced
-
-The model achieves an **R² score of ~0.99** on the test dataset.
-
-## 📸 Screenshots
-
-![App Screenshot](Screenshots/screenshot1.png)
-![Prediction Results](Screenshots/screenshot2.png)
-
-## 🛠️ Technologies Used
-
-- **Python 3.8+**
-- **Scikit-learn** - Machine learning model training
-- **Pandas & NumPy** - Data manipulation
-- **Streamlit** - Web application framework
-- **Plotly** - Data visualization
-
-## 📁 Project Structure
-# 🎓 Student Performance Prediction System
 
 A machine learning web application that predicts student academic performance based on study habits, sleep patterns, and other behavioral factors.
 
