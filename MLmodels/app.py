@@ -13,11 +13,12 @@ import json
 # PAGE CONFIG
 # ══════════════════════════════════════════════════════════════
 st.set_page_config(
-    page_title="AcademyFlow | Student Performance AI",
+    page_title="AcademyFlow | Student Performance ",
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded",
 )
+st.markdown('<style>[data-testid="stSidebarCollapseButton"]{display:none!important;}[data-testid="collapsedControl"]{display:none!important;}</style>', unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════════
 # LOAD MODEL
@@ -56,7 +57,7 @@ st.markdown("""
     --glass-border: rgba(255, 255, 255, 0.18);
 }
 
-* { font-family: 'Outfit', sans-serif !important; }
+*:not(.material-icons):not(.material-symbols-outlined) { font-family: 'Outfit', sans-serif !important; }
 
 /* ── Background ── */
 [data-testid="stAppViewContainer"] {
@@ -366,6 +367,14 @@ st.markdown("""
 /* ── Hide Streamlit Branding ── */
 #MainMenu, footer, header { visibility: hidden; }
 .stDeployButton { display: none; }
+
+/* ── Hide Sidebar Collapse Button ── */
+[data-testid="collapsedControl"] { display: none !important; }
+button[kind="header"] { display: none !important; }
+[data-testid="stSidebarCollapseButton"] { display: none !important; }
+section[data-testid="stSidebar"] > div:first-child > div:first-child button { display: none !important; }
+.st-emotion-cache-1dp5vir { display: none !important; }
+div[data-testid="stSidebarNav"] + div button { display: none !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -500,7 +509,7 @@ with st.sidebar:
     <div style='text-align:center; padding:1.5rem 0 1rem 0;'>
         <div style='font-size:2.5rem; margin-bottom:0.5rem;'>🎯</div>
         <<div style='font-size:1.5rem; font-weight:800; color:#a5b4fc; margin-bottom:0.3rem;'>AcademyFlow</div>
-        <div style='font-size:0.85rem; color:#64748b; font-weight:500;'>AI-Powered Performance Analysis</div>
+        <div style='font-size:0.85rem; color:#64748b; font-weight:500;'>Student Performance Analysis</div>
     </div>
     """, unsafe_allow_html=True)
     
@@ -547,10 +556,10 @@ with st.sidebar:
 st.markdown("""
 <div class='hero-container animate-in'>
     <div style='position:relative; z-index:1;'>
-        <div class='hero-badge'>🚀 NEXT-GEN AI ANALYTICS</div>
-        <h1 class='hero-title'>AcademyFlow AI</h1>
+        <div class='hero-badge'>🚀 NEXT-GEN ANALYTICS</div>
+        <h1 class='hero-title'>AcademyFlow</h1>
         <p class='hero-subtitle'>
-            Advanced machine learning engine for student performance prediction and personalized insights
+            Advanced analytics engine for student performance prediction and personalized insights
         </p>
     </div>
 </div>
@@ -621,7 +630,7 @@ with tab1:
         st.plotly_chart(make_radar_chart(radar_values, radar_categories), use_container_width=True)
     
     with col2:
-        st.markdown('<div class="section-header">🔮 AI Prediction</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header">🔮 Prediction</div>', unsafe_allow_html=True)
         
         if predict_btn and model_loaded:
             # Prepare features
@@ -671,7 +680,6 @@ with tab1:
                 <div class='prediction-score'>{prediction:.1f}</div>
                 <div class='prediction-desc'>{message}</div>
                 <div class='model-badge'>
-                    <span>🤖</span>
                     <span>Powered by {model_name}</span>
                 </div>
             </div>
@@ -912,7 +920,7 @@ st.markdown("""
 <div style='text-align:center; color:#475569; font-size:0.85rem; 
             padding:2rem 0 1rem; margin-top:3rem;
             border-top:1px solid rgba(255,255,255,0.08);'>
-    <div style='margin-bottom:0.5rem;'>🎓 AcademyFlow AI - Advanced Student Performance Analytics</div>
-    <div>Built with Streamlit | Powered by Machine Learning</div>
+    <div style='margin-bottom:0.5rem;'>🎓 AcademyFlow - Advanced Student Performance Analytics</div>
+    <div>Built with Streamlit</div>
 </div>
 """, unsafe_allow_html=True)
