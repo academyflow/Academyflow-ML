@@ -563,7 +563,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 **Barani**
 - GitHub: [@barani](https://github.com/barani)
-- Role: Frontend Development & UI/UX Design
+- Role: Frontend Development & UI/UX Design , Model Training
 - Email: barani@example.com
 
 **Project Repository:** [https://github.com/ar-jun-web/student-performance-ML-project](https://github.com/ar-jun-web/student-performance-ML-project)
