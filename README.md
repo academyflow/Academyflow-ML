@@ -71,8 +71,8 @@ AcademyFlow AI is a comprehensive student performance prediction system that use
 
 ### 🎯 Core Functionality
 - **Real-time Performance Prediction** - Instant predictions with <100ms response time
-- **Multi-Model Ensemble** - Compares 3 ML algorithms (Linear Regression, Random Forest, Gradient Boosting)
-- **Advanced Feature Engineering** - 4 engineered features to boost accuracy from 98.97% to 99.14%
+- **Multi-Model Comparison** - Compares 3 ML algorithms (Linear Regression, Random Forest, Gradient Boosting)
+- **Advanced Feature Engineering** - 4 engineered features for improved predictions
 - **Interactive Visualizations** - Plotly-powered gauges, radar charts, and bar graphs
 - **Modern UI Design** - Glassmorphism aesthetic with responsive layout
 
@@ -219,23 +219,22 @@ The application will automatically open in your default browser at `http://local
 
 | Model | R² Score | MAE | RMSE | Status |
 |-------|----------|-----|------|--------|
-| Linear Regression | 0.9897 | 1.52 | 1.98 | Baseline |
-| **Random Forest** ✅ | **0.9914** | **1.38** | **1.81** | **Selected** |
-| Gradient Boosting | 0.9905 | 1.45 | 1.89 | Evaluated |
+| **Linear Regression** ✅ | **0.9890** | **1.598** | **2.009** | **Selected** |
+| Random Forest | 0.9872 | 1.729 | 2.170 | Evaluated |
+| Gradient Boosting | 0.9882 | 1.655 | 2.085 | Evaluated |
 
-**Selected Model:** Random Forest Regressor
-- **Accuracy:** 99.14% (R² = 0.9914)
-- **Error Range:** ±1.81 points (RMSE)
+**Selected Model:** Linear Regression
+- **Accuracy:** 98.90% (R² = 0.9890)
+- **Error Range:** ±2.009 points (RMSE)
 - **Prediction Speed:** <100ms
-- **Hyperparameters:** n_estimators=100, max_depth=10, random_state=42
 
-### Feature Importance (Random Forest Analysis)
+### Key Predictors (Linear Regression)
 
-1. **Previous Scores** - Strongest predictor (42% importance)
-2. **Hours Studied** - High impact (28% importance)
-3. **Practice Papers** - Significant factor (18% importance)
-4. **Sleep Hours** - Moderate influence (8% importance)
-5. **Extracurricular Activities** - Minor but positive effect (4% importance)
+1. **Previous Scores** - Strongest predictor
+2. **Hours Studied** - High impact
+3. **Practice Papers** - Significant factor
+4. **Sleep Hours** - Moderate influence
+5. **Extracurricular Activities** - Minor but positive effect
 
 ### Validation Methodology
 
@@ -339,8 +338,8 @@ for name, model in models.items():
     print(f"{name}: R²={r2:.4f}, MAE={mae:.2f}, RMSE={rmse:.2f}")
     print(f"CV Score: {cv_scores.mean():.4f} (+/- {cv_scores.std():.4f})")
 
-# Select best model (Random Forest)
-best_model = RandomForestRegressor(n_estimators=100, max_depth=10, random_state=42)
+# Select best model (Linear Regression - highest R²)
+best_model = LinearRegression()
 best_model.fit(X_train, y_train)
 ```
 
@@ -351,12 +350,12 @@ import joblib
 # Package model with metadata
 model_package = {
     'best_model': best_model,
-    'best_model_name': 'Random Forest Regressor',
+    'best_model_name': 'Linear Regression',
     'feature_names': list(X.columns),
     'results': {
-        'r2_score': 0.9914,
-        'mae': 1.38,
-        'rmse': 1.81
+        'r2_score': 0.9890,
+        'mae': 1.598,
+        'rmse': 2.009
     }
 }
 
@@ -450,8 +449,8 @@ st.metric("Predicted Performance Index", f"{prediction:.2f}")
 ### Key Challenges & Solutions
 
 #### Challenge 1: Model Selection
-- **Problem:** Initial Linear Regression model showed 98.97% accuracy but struggled with non-linear patterns
-- **Solution:** Implemented ensemble methods (Random Forest, Gradient Boosting) and achieved 99.14% accuracy
+- **Problem:** Needed to identify the best-performing model among multiple candidates
+- **Solution:** Compared Linear Regression, Random Forest, and Gradient Boosting — Linear Regression achieved the best R² score of 0.9890
 
 #### Challenge 2: Feature Engineering
 - **Problem:** Raw features didn't capture interaction effects
